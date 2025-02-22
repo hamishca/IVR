@@ -1,0 +1,9 @@
+#ivr_xml
+/etc/freeswitch/ivr_menus/pump_demo_ivr.xml
+
+#macro_xml
+/etc/freeswitch/lang/en/demo/pump-demo-ivr.xml
+
+#wav files
+/usr/share/freeswitch/sounds/en/us/callie/pump/8000/*.wav
+

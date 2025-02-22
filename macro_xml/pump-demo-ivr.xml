@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<include><!--This line will be ignored it's here to validate the xml and is optional -->
+
+  <macro name="pump_demo_greet_main_menu" pause="100"> <!-- See conf/ivr_menus/ivr.conf.xml for an example on how to use this macro in an IVR -->
+    <input pattern="(.*)">
+      <match>
+        <action function="play-file" data="pump/pump_mainwelcome.wav"/>
+        <action function="play-file" data="silence_stream://500"/>
+
+        <!-- Menu option 1: For information about FreeSWITCH... -->
+        <action function="play-file" data="pump/pump_mainnewaccount.wav"/>
+        <action function="play-file" data="digits/pleasepress1.wav"/>
+
+        <!-- Menu option 2: To learn more about FreeSWITCH Solutions... -->
+        <action function="play-file" data="pump/pump_mainexistingaccount.wav"/>
+        <action function="play-file" data="digits/pleasepress2.wav"/>
+
+        <!-- Menu option 3: To hear about ClueCon -->
+        <action function="play-file" data="pump/pump_maincredit.wav"/>
+        <action function="play-file" data="digits/pleasepress3.wav"/>
+
+        <!-- Menu option 0: For other options -->
+        <action function="play-file" data="pump/pump_transferagent.wav"/>
+        <action function="play-file" data="digits/pleasepress0.wav"/>
+
+        <!-- Menu option 9: Repeat these options -->
+        <action function="play-file" data="pump/pump_repeat.wav"/>
+        <action function="play-file" data="digits/pleasepress9.wav"/>
+        <action function="play-file" data="silence_stream://2000"/>
+      </match>
+    </input>
+  </macro>
+
+  <!-- The following macro is the same as new_demo_ivr_main_menu except it is the "short" version -->
+  <!-- The short version has all the options but not the initial greeting -->
+  <macro name="pump_demo_greet_newaccount" pause="100"> 
+    <input pattern="(.*)">
+      <match>
+        <!-- Menu option 1: For information about FreeSWITCH... -->
+        <action function="play-file" data="pump/pump_newwelcome.wav"/>
+        <action function="play-file" data="silence_stream://2000"/>
+      </match>
+    </input>
+  </macro>
+
+  <!-- More information about FreeSWITCH... -->
+  <macro name="pump_demo_greet_existaccount">
+    <input pattern="(.*)">
+      <match>
+        <action function="play-file" data="pump/pump_accountwelcome.wav"/>
+        <action function="play-file" data="silence_stream://500"/>
+
+        <!-- Menu option 1: For information about FreeSWITCH... -->
+        <action function="play-file" data="pump/pump_accountbalance.wav"/>
+        <action function="play-file" data="digits/pleasepress1.wav"/>
+
+        <!-- Menu option 2: To hear about ClueCon -->
+        <action function="play-file" data="pump/pump_accountupdate.wav"/>
+        <action function="play-file" data="digits/pleasepress2.wav"/>
+
+	<!-- Menu option 2: To hear about ClueCon  -->
+        <action function="play-file" data="pump/pump_accountclose.wav"/>
+	<action function="play-file" data="digits/pleasepress3.wav"/>
+
+        <!-- Menu option 0: For other options -->
+        <action function="play-file" data="pump/pump_transferagent.wav"/>
+        <action function="play-file" data="digits/pleasepress0.wav"/>
+
+        <!-- Menu option 9: For other options -->
+        <action function="play-file" data="pump/pump_repeat.wav"/>
+        <action function="play-file" data="digits/pleasepress9.wav"/>
+
+        <!-- Menu option *: Return to top menu -->
+        <action function="play-file" data="pump/pump_return.wav"/>
+        <action function="play-file" data="digits/pleasepressstar.wav"/>
+        <action function="play-file" data="silence_stream://2000"/>
+
+      </match>
+    </input>
+  </macro>
+
+  <macro name="pump_demo_greet_accountbalance" pause="100"> 
+    <input pattern="(.*)">
+      <match>
+        <!-- Menu option 1: For information about FreeSWITCH... -->
+        <action function="play-file" data="pump/pump_accountbalancewelcome.wav"/>
+        <action function="play-file" data="silence_stream://2000"/>
+      </match>
+    </input>
+  </macro>
+
+  <macro name="pump_demo_greet_accountupdate" pause="100"> 
+    <input pattern="(.*)">
+      <match>
+        <!-- Menu option 1: For information about FreeSWITCH... -->
+        <action function="play-file" data="pump/pump_accountupdatewelcome.wav"/>
+        <action function="play-file" data="silence_stream://2000"/>
+      </match>
+    </input>
+  </macro>
+
+  <macro name="pump_demo_greet_accountclose" pause="100"> 
+    <input pattern="(.*)">
+      <match>
+        <!-- Menu option 1: For information about FreeSWITCH... -->
+        <action function="play-file" data="pump/pump_accountclosewelcome.wav"/>
+        <action function="play-file" data="silence_stream://2000"/>
+      </match>
+    </input>
+  </macro>
+
+  <macro name="pump_demo_greet_cardaccount">
+    <input pattern="(.*)">
+      <match>
+        <action function="play-file" data="pump/pump_cardwelcome.wav"/>
+        <action function="play-file" data="silence_stream://500"/>
+
+        <!-- Menu option 1: -->
+        <action function="play-file" data="pump/pump_cardlost.wav"/>
+        <action function="play-file" data="digits/pleasepress1.wav"/>
+
+	<!-- Menu option 2: --> 
+        <action function="play-file" data="pump/pump_cardlimit.wav"/>
+	<action function="play-file" data="digits/pleasepress2.wav"/>
+
+        <!-- Menu option 3: -->
+        <action function="play-file" data="pump/pump_cardquery.wav"/>
+        <action function="play-file" data="digits/pleasepress3.wav"/>
+
+        <!-- Menu option 0: -->
+        <action function="play-file" data="pump/pump_transferagent.wav"/>
+        <action function="play-file" data="digits/pleasepress0.wav"/>
+
+        <!-- Menu option 9: -->
+        <action function="play-file" data="pump/pump_repeat.wav"/>
+        <action function="play-file" data="digits/pleasepress9.wav"/>
+
+        <!-- Menu option *: Return to top menu -->
+        <action function="play-file" data="pump/pump_return.wav"/>
+        <action function="play-file" data="digits/pleasepressstar.wav"/>
+        <action function="play-file" data="silence_stream://2000"/>
+
+      </match>
+    </input>
+  </macro>
+
+
+  <macro name="pump_demo_greet_cardlost" pause="100"> 
+    <input pattern="(.*)">
+      <match>
+        <!-- Menu option 1: For information about FreeSWITCH... -->
+        <action function="play-file" data="pump/pump_cardlostwelcome.wav"/>
+        <action function="play-file" data="silence_stream://2000"/>
+      </match>
+    </input>
+  </macro>
+
+  <macro name="pump_demo_greet_cardlimit" pause="100"> 
+    <input pattern="(.*)">
+      <match>
+        <!-- Menu option 1: For information about FreeSWITCH... -->
+        <action function="play-file" data="pump/pump_cardlimitwelcome.wav"/>
+        <action function="play-file" data="silence_stream://2000"/>
+      </match>
+    </input>
+  </macro>
+
+  <macro name="pump_demo_greet_cardquery" pause="100"> 
+    <input pattern="(.*)">
+      <match>
+        <!-- Menu option 1: For information about FreeSWITCH... -->
+        <action function="play-file" data="pump/pump_cardquerywelcome.wav"/>
+        <action function="play-file" data="silence_stream://2000"/>
+      </match>
+    </input>
+  </macro>
+
+  <macro name="pump_demo_greet_custsupport" pause="100"> 
+    <input pattern="(.*)">
+      <match>
+        <!-- Menu option 1: For information about FreeSWITCH... -->
+        <action function="play-file" data="pump/pump_supportcustwelcome.wav"/>
+        <action function="play-file" data="silence_stream://2000"/>
+      </match>
+    </input>
+  </macro>
+
+  <macro name="pump_demo_greet_genericsupport" pause="100"> 
+    <input pattern="(.*)">
+      <match>
+        <!-- Menu option 1: For information about FreeSWITCH... -->
+        <action function="play-file" data="pump/pump_supportgenwelcome.wav"/>
+        <action function="play-file" data="silence_stream://2000"/>
+      </match>
+    </input>
+  </macro>
+
+  <macro name="pump_demo_greet_transferagent" pause="100"> 
+    <input pattern="(.*)">
+      <match>
+        <!-- Menu option 1: For information about FreeSWITCH... -->
+        <action function="play-file" data="pump/pump_pleaseholdtxagent.wav"/>
+        <action function="play-file" data="silence_stream://2000"/>
+      </match>
+    </input>
+  </macro>
+
+</include><!--This line will be ignored it's here to validate the xml and is optional -->

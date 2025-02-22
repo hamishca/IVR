@@ -1,0 +1,194 @@
+<include>
+  <!-- pump demo IVR, Main Menu -->
+  <menu name="pump_demo_ivr"
+      greet-long="phrase:pump_demo_greet_main_menu"
+      greet-short="phrase:pump_demo_greet_main_menu"
+      invalid-sound="ivr/ivr-that_was_an_invalid_entry.wav"
+      exit-sound="voicemail/vm-goodbye.wav"
+      confirm-macro=""
+      confirm-key=""
+      tts-engine="flite"
+      tts-voice="rms"
+      confirm-attempts="3"
+      timeout="10000"
+      inter-digit-timeout="2000"
+      max-failures="3"
+      max-timeouts="3"
+      digit-len="4">
+
+    <entry action="menu-sub"      digits="1" param="submenu_newaccount"/>            <!-- FreeSWITCH sub menu -->
+    <entry action="menu-sub"      digits="2" param="submenu_existaccount"/>  <!-- FreeSWITCH Solutions sub menu -->
+    <entry action="menu-sub"      digits="3" param="submenu_cardaccount"/>               <!-- ClueCon sub menu -->
+    <entry action="menu-sub"      digits="4" param="submenu_custsupport"/>                  <!-- original demo IVR -->
+    <entry action="menu-sub"      digits="0" param="submenu_transferagent"/>                  <!-- original demo IVR -->
+    <entry action="menu-top"      digits="9"/>                                           <!-- Repeat this menu -->
+  </menu>
+
+  <!-- FreeSWITCH IVR Sub Menu -->
+  <menu name="submenu_newaccount"
+      greet-long="phrase:pump_demo_greet_newaccount"
+      greet-short="phrase:pump_demo_greet_newaccount"
+      invalid-sound="ivr/ivr-that_was_an_invalid_entry.wav"
+      exit-sound="voicemail/vm-goodbye.wav"
+      timeout="15000"
+      max-failures="3"
+      max-timeouts="3">
+    <entry action="menu-sub" digits="/^([0-9])$/" param="submenu_transferagent"/>
+    <entry action="menu-top"      digits="*"/>                                           <!-- Repeat this menu -->
+  </menu>
+
+  <!-- FreeSWITCH Solutions IVR Sub Menu -->
+  <menu name="submenu_existaccount"
+      greet-long="phrase:pump_demo_greet_existaccount"
+      greet-short="phrase:pump_demo_greet_existaccount"
+      invalid-sound="ivr/ivr-that_was_an_invalid_entry.wav"
+      exit-sound="voicemail/vm-goodbye.wav"
+      timeout="15000"
+      max-failures="3"
+      max-timeouts="3">
+
+
+    <entry action="menu-sub"      digits="1" param="submenu_accountbalance"/>
+    <entry action="menu-sub"      digits="2" param="submenu_accountupdate"/>
+	<!--<entry action="menu-sub"      digits="3" param="submenu_accountclose"/>-->
+<entry action="menu-sub"      digits="3" param="submenu_accountclose"/>
+    <entry action="menu-sub"      digits="0" param="submenu_transferagent"/>
+    <entry action="menu-sub"      digits="9" param="submenu_existaccount"/>
+    <entry action="menu-top"      digits="*"/>
+  </menu>
+
+  <!-- FreeSWITCH IVR Sub Menu -->
+  <menu name="submenu_accountbalance"
+      greet-long="phrase:pump_demo_greet_accountbalance"
+      greet-short="phrase:pump_demo_greet_accountbalance"
+      invalid-sound="ivr/ivr-that_was_an_invalid_entry.wav"
+      exit-sound="voicemail/vm-goodbye.wav"
+      timeout="15000"
+      max-failures="3"
+      max-timeouts="3">
+    <entry action="menu-top"      digits="*"/>                                           <!-- Repeat this menu -->
+  </menu>
+
+  <!-- FreeSWITCH IVR Sub Menu -->
+  <menu name="submenu_accountupdate"
+      greet-long="phrase:pump_demo_greet_accountupdate"
+      greet-short="phrase:pump_demo_greet_accountupdate"
+      invalid-sound="ivr/ivr-that_was_an_invalid_entry.wav"
+      exit-sound="voicemail/vm-goodbye.wav"
+      timeout="15000"
+      max-failures="3"
+      max-timeouts="3">
+    <entry action="menu-sub" digits="/^([0-9])$/" param="submenu_transferagent"/>
+    <entry action="menu-top"      digits="*"/>                                           <!-- Repeat this menu -->
+  </menu>
+
+  <!-- FreeSWITCH IVR Sub Menu -->
+  <menu name="submenu_accountclose"
+      greet-long="phrase:pump_demo_greet_accountclose"
+      greet-short="phrase:pump_demo_greet_accountclose"
+      invalid-sound="ivr/ivr-that_was_an_invalid_entry.wav"
+      exit-sound="voicemail/vm-goodbye.wav"
+      timeout="15000"
+      max-failures="3"
+      max-timeouts="3">
+    <entry action="menu-sub" digits="/^([0-9])$/" param="submenu_transferagent"/>
+    <entry action="menu-top"      digits="*"/>                                           <!-- Repeat this menu -->
+  </menu>
+
+  <!-- FreeSWITCH Solutions IVR Sub Menu -->
+  <menu name="submenu_cardaccount"
+      greet-long="phrase:pump_demo_greet_cardaccount"
+      greet-short="phrase:pump_demo_greet_cardaccount"
+      invalid-sound="ivr/ivr-that_was_an_invalid_entry.wav"
+      exit-sound="voicemail/vm-goodbye.wav"
+      timeout="15000"
+      max-failures="3"
+      max-timeouts="3">
+
+    <entry action="menu-sub"      digits="1" param="submenu_cardlost"/>            <!-- FreeSWITCH sub menu -->
+    <entry action="menu-sub"      digits="2" param="submenu_cardlimit"/>  <!-- FreeSWITCH Solutions sub menu -->
+    <entry action="menu-sub"      digits="2" param="submenu_cardquery"/>  <!-- FreeSWITCH Solutions sub menu -->
+    <entry action="menu-sub"      digits="0" param="submenu_transferagent"/>               <!-- ClueCon sub menu -->
+    <entry action="menu-sub"      digits="9" param="submenu_cardaccount"/>                  <!-- original demo IVR -->
+    <entry action="menu-top"      digits="*"/>                                           <!-- Repeat this menu -->
+  </menu>
+
+  <!-- FreeSWITCH IVR Sub Menu -->
+  <menu name="submenu_cardlost"
+      greet-long="phrase:pump_demo_greet_cardlost"
+      greet-short="phrase:pump_demo_greet_cardlost"
+      invalid-sound="ivr/ivr-that_was_an_invalid_entry.wav"
+      exit-sound="voicemail/vm-goodbye.wav"
+      timeout="15000"
+      max-failures="3"
+      max-timeouts="3">
+    <entry action="menu-sub" digits="/^([0-9])$/" param="submenu_transferagent"/>
+    <entry action="menu-top"      digits="*"/>                                           <!-- Repeat this menu -->
+  </menu>
+
+  <!-- FreeSWITCH IVR Sub Menu -->
+  <menu name="submenu_cardlimit"
+      greet-long="phrase:pump_demo_greet_cardlimit"
+      greet-short="phrase:pump_demo_greet_cardlimit"
+      invalid-sound="ivr/ivr-that_was_an_invalid_entry.wav"
+      exit-sound="voicemail/vm-goodbye.wav"
+      timeout="15000"
+      max-failures="3"
+      max-timeouts="3">
+    <entry action="menu-sub" digits="/^([0-9])$/" param="submenu_transferagent"/>
+    <entry action="menu-top"      digits="*"/>                                           <!-- Repeat this menu -->
+  </menu>
+
+  <!-- FreeSWITCH IVR Sub Menu -->
+  <menu name="submenu_cardquery"
+      greet-long="phrase:pump_demo_greet_cardquery"
+      greet-short="phrase:pump_demo_greet_cardquery"
+      invalid-sound="ivr/ivr-that_was_an_invalid_entry.wav"
+      exit-sound="voicemail/vm-goodbye.wav"
+      timeout="15000"
+      max-failures="3"
+      max-timeouts="3">
+    <entry action="menu-sub" digits="/^([0-9])$/" param="submenu_transferagent"/>
+    <entry action="menu-top"      digits="*"/>                                           <!-- Repeat this menu -->
+  </menu>
+
+  <!-- FreeSWITCH IVR Sub Menu -->
+  <menu name="submenu_custsupport"
+      greet-long="phrase:pump_demo_greet_custsupport"
+      greet-short="phrase:pump_demo_greet_custsupport"
+      invalid-sound="ivr/ivr-that_was_an_invalid_entry.wav"
+      exit-sound="voicemail/vm-goodbye.wav"
+      timeout="15000"
+      max-failures="3"
+      max-timeouts="3">
+    <entry action="menu-sub" digits="/^([0-9])$/" param="submenu_transferagent"/>
+    <entry action="menu-top"      digits="*"/>                                           <!-- Repeat this menu -->
+  </menu>
+
+  <!-- FreeSWITCH IVR Sub Menu -->
+  <menu name="submenu_genericsupport"
+      greet-long="phrase:pump_demo_greet_genericsupport"
+      greet-short="phrase:pump_demo_greet_genericsupport"
+      invalid-sound="ivr/ivr-that_was_an_invalid_entry.wav"
+      exit-sound="voicemail/vm-goodbye.wav"
+      timeout="15000"
+      max-failures="3"
+      max-timeouts="3">
+    <entry action="menu-sub" digits="/^([0-9])$/" param="submenu_transferagent"/>
+    <entry action="menu-top"      digits="*"/>                                           <!-- Repeat this menu -->
+  </menu>
+
+  <!-- ClueCon IVR Sub Menu -->
+  <menu name="submenu_transferagent"
+      greet-long="phrase:pump_demo_greet_transferagent"
+      greet-short="phrase:pump_demo_greet_transferagent"
+      invalid-sound="ivr/ivr-that_was_an_invalid_entry.wav"
+      exit-sound="voicemail/vm-goodbye.wav"
+      timeout="15000"
+      max-failures="3"
+      max-timeouts="3">
+    <entry action="menu-top"      digits="*"/>                                           <!-- Repeat this menu -->
+  </menu>
+
+
+</include>
