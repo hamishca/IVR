@@ -58,3 +58,5 @@ jobs:
           report_paths: 'test-reports/report.*'
           include_passed: true
           skip_annotations: true
+          fail_on_failure: true
+          detailed_summary: true
