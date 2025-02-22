@@ -39,7 +39,7 @@ jobs:
           rm -f test-reports/dbid.txt
           dbid=`curl -H "X-API-Key: 68d8b99bf8b69f583b9e6c4c82027d5d" -X PUT https://cloud.pump.cx/pump/rest/testrun/126`
           echo PumpCX Test Run: https://cloud.pump.cx/pump/test_run_ft.html?id=$dbid >> $GITHUB_STEP_SUMMARY
-          echo The run is looks like its ${{ github.run_id }} >> $GITHUB_STEP_SUMMARY
+          curl -H "X-API-Key: 68d8b99bf8b69f583b9e6c4c82027d5d" -H "Content-Type: application/json" --request POST --data '{"url":"https://github.com/hamishca/IVR/actions/runs/${{ github.run_id }}","item":"${{ github.run_id }}","label": "Github Action Run ID"}' https://cloud.pump.cx/pump/rest/testrun/build_info/126
           sleep 60
           while true; do
             rm -f test-reports/report.*
