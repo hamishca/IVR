@@ -38,7 +38,7 @@ jobs:
           mkdir -p test-reports
           rm -f test-reports/dbid.txt
           dbid=`curl -H "X-API-Key: 61be11cb0d2ce789462375c97ae95632" -X PUT https://cloud.pump.cx/pump/rest/testrun/126`
-          echo 'PumpCX Test Run: https://cloud.pump.cx/pump/test_run_ft.html?id=$dbid' >> $GITHUB_STEP_SUMMARY
+          echo PumpCX Test Run: https://cloud.pump.cx/pump/test_run_ft.html?id=$dbid >> $GITHUB_STEP_SUMMARY
           sleep 60
           while true; do
             rm -f test-reports/report.*
