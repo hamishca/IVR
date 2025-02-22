@@ -37,12 +37,12 @@ jobs:
         run: |
           mkdir -p test-reports
           rm -f test-reports/dbid.txt
-          dbid=`curl -H "X-API-Key: 61be11cb0d2ce789462375c97ae95632" -X PUT https://cloud.pump.cx/pump/rest/testrun/126`
+          dbid=`curl -H "X-API-Key: 68d8b99bf8b69f583b9e6c4c82027d5d" -X PUT https://cloud.pump.cx/pump/rest/testrun/126`
           echo PumpCX Test Run: https://cloud.pump.cx/pump/test_run_ft.html?id=$dbid >> $GITHUB_STEP_SUMMARY
           sleep 60
           while true; do
             rm -f test-reports/report.*
-            curl -H "X-API-Key: 61be11cb0d2ce789462375c97ae95632" https://cloud.pump.cx/pump/rest/testrun/report/$dbid -o test-reports/report.txt 
+            curl -H "X-API-Key: 68d8b99bf8b69f583b9e6c4c82027d5d" https://cloud.pump.cx/pump/rest/testrun/report/$dbid -o test-reports/report.txt 
             cat test-reports/report.txt
             if grep -q testsuite test-reports/report.txt; then
               mv test-reports/report.txt test-reports/report.xml
