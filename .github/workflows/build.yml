@@ -25,16 +25,20 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      # Runs a set of commands using the runners shell
+      #- name: Execute Pump Scrpt
+      #  run: |
+      #
+      #  deploy the IVR files and restart IVR.
+      #
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Execute Pump Scrpt
         run: |
           mkdir -p test-reports
           rm -f test-reports/dbid.txt
           dbid=`curl -H "X-API-Key: 61be11cb0d2ce789462375c97ae95632" -X PUT https://cloud.pump.cx/pump/rest/testrun/126`
+          echo 'PumpCX Test Run: https://cloud.pump.cx/pump/test_run_ft.html?id=$dbid' >> $GITHUB_STEP_SUMMARY
           sleep 60
           while true; do
             rm -f test-reports/report.*
